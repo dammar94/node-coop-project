@@ -1,1 +1,4 @@
-<p>vacancies works!</p>
+<h1>Lista vacancies</h1>
+<p *ngFor="let vacancy of vacancies$ | async">
+  {{ vacancy.description }}
+</p>
