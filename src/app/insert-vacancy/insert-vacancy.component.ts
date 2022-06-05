@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.store';
-import * as VacancyActions from 'src\\app\\state\\vacancy\\vacancy.actions';
+import * as VacancyActions from '../state/vacancy/vacancy.actions';
 import { JobType } from '../job-type';
 
 @Component({
