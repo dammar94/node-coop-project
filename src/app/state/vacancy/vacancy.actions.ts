@@ -14,4 +14,6 @@ export class DeleteVacancy implements Action {
   constructor(public payload: Vacancy) {}
 }
 
-export type All = AddVacancy;
+export type All
+  = AddVacancy
+  | DeleteVacancy;
