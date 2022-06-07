@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../state/app.store';
-import { Vacancy } from '../vacancy';
+import { Vacancy } from '../models/vacancy';
+import * as VacancyActions from '../state/vacancy/vacancy.actions';
 
 @Component({
   selector: 'app-vacancies',
@@ -17,7 +18,11 @@ export class VacanciesComponent implements OnInit {
     this.vacancies$ = this.store.select('vacancies');
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  deleteVacancy(vacancy: Vacancy) {
+    // console.log(vacancy);
+    this.store.dispatch(new VacancyActions.DeleteVacancy(vacancy));
   }
 
 }

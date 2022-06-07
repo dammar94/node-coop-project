@@ -1,4 +1,17 @@
-<h1>Lista vacancies</h1>
-<p *ngFor="let vacancy of vacancies$ | async">
-  {{ vacancy.description }}
-</p>
+<section id="main-section">
+  <h1>Lista vacancies</h1>
+  <p *ngFor="let vacancy of vacancies$ | async">
+    <mat-card>
+      <mat-card-subtitle>{{ vacancy.type }}</mat-card-subtitle>
+      <mat-card-title>{{ vacancy.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ vacancy.description }}</p>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions align="end">
+        <button mat-stroked-button disabled="">Condividi<mat-icon>share</mat-icon></button>
+        <button mat-flat-button color="warn" (click)="deleteVacancy(vacancy)">Elimina<mat-icon>delete</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
+  </p>
+</section>

@@ -3,19 +3,20 @@
   <h1>Inserimento vacancy</h1>
   <h2>Compilare il form sottostante per inserire una nuova vacancy.</h2>
   <h3>I dati inseriti saranno revisionati dal nostro staff prima della pubblicazione sulla piattaforma.</h3>
+  <h3>I campi contrassegnati con asterisco sono obbligatori.</h3>
   <form [formGroup]="vacancyForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="legacy">
       <mat-label>Titolo</mat-label>
       <input matInput formControlName="title"
         #title
         maxlength="64">
       <mat-hint align="end">{{title.value?.length || 0}}/64</mat-hint>
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="legacy">
       <mat-label>Tipologia</mat-label>
       <mat-select formControlName="type">
-        <mat-option value="part-time">part-time</mat-option>
-        <mat-option value="full-time">full-time</mat-option>
+        <mat-option [value]="JOB_TYPE.PART_TIME">part-time</mat-option>
+        <mat-option [value]="JOB_TYPE.FULL_TIME">full-time</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -29,7 +30,9 @@
       <mat-hint align="end">{{description.value?.length || 0}}/256</mat-hint>
     </mat-form-field>
     <div style="margin-top: 15px;">
-      <button mat-stroked-button color="primary" type="submit" [disabled]="!vacancyForm.valid">Invia</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!vacancyForm.valid">
+        Invia<mat-icon>send</mat-icon>
+      </button>
       <p>Form Status: {{ vacancyForm.status }}</p>
     </div>
   </form>

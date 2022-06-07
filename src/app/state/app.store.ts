@@ -1,5 +1,5 @@
 import { ActionReducerMap } from "@ngrx/store";
-import { Vacancy } from "../vacancy";
+import { Vacancy } from "../models/vacancy";
 import { vacancyReducer } from "./vacancy/vacancy.reducer";
 
 export interface AppState {
